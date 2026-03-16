@@ -98,6 +98,13 @@ public class AList<T> implements ListInterface<T>{
                    "Illegal position given to getEntry operation.");
    } // end getEntry
 
+   public T get(int index) {
+      if ((index >= 1) && (index <= numberOfEntries))
+         return (T) list[index];
+      else
+         throw new IndexOutOfBoundsException(
+                   "Illegal position given to get operation.");
+   }
    public T[] toArray()
    {
       // The cast is safe because the new array contains null entries
@@ -163,5 +170,6 @@ public class AList<T> implements ListInterface<T>{
       for (int index = givenPosition; index < numberOfEntries; index++)
          list[index] = list[index + 1];
    } // end removeGap
-    
+   
+   
 }

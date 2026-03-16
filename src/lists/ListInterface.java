@@ -74,4 +74,6 @@ public interface ListInterface<T>
    /** Sees whether this list is empty.
        @return  True if the list is empty, or false if not. */
    public boolean isEmpty();
+
+   public T get(int index);
 } // end ListInterface
