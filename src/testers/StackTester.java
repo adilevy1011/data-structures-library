@@ -55,5 +55,27 @@ public class StackTester {
         } catch (IllegalStateException e) {
             System.out.println("Caught expected exception: " + e.getMessage());
         }
+
+        System.out.println("StackWithQueues Test:");
+        StackInterface<Integer> stackWithQueues = new StackWithQueue<>();
+        // Test push and peek
+        stackWithQueues.push(1);
+        stackWithQueues.push(2);
+        stackWithQueues.push(3);
+        System.out.println("Peek: " + stackWithQueues.peek()); // Should print 3
+        // Test pop
+        System.out.println("Pop: " + stackWithQueues.pop()); // Should print 3
+        System.out.println("Peek after pop: " + stackWithQueues.peek()); // Should print 2
+        // Test isEmpty
+        System.out.println("Is empty? " + stackWithQueues.isEmpty()); // Should print false
+        // Test clear
+        stackWithQueues.clear();
+        System.out.println("Is empty after clear? " + stackWithQueues.isEmpty()); // Should print true
+        // Test pop on empty stack (should throw exception)
+        try {
+            stackWithQueues.pop();
+        } catch (IllegalStateException e) {
+            System.out.println("Caught expected exception: " + e.getMessage());
+        }
     }
 }

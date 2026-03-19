@@ -15,16 +15,34 @@ public class QueueWithStack<T> implements QueueInterface<T>{
     }
 
     public void enqueue(T item){
+        rev.push(item);
         size++;
     }
     
     public T dequeue(){
+        if(size == 0){
+            throw new IllegalStateException("Queue is empty");
+        }
+        for(int i = 0; i < size-1; i++){
+            nor.push(rev.pop());
+        }
+        T item = rev.pop();
         size--;
-        return null;
+        for(int i = 0; i < size; i++){
+            rev.push(nor.pop());
+        }
+        return item;
     }
     
     public T peek(){
-        return null;
+        for(int i = 0; i < size-1; i++){
+            nor.push(rev.pop());
+        }
+        T item = rev.peek();
+        for(int i = 0; i < size-1; i++){
+            rev.push(nor.pop());
+        }
+        return item;
     }
     
     public boolean isEmpty(){
@@ -32,7 +50,10 @@ public class QueueWithStack<T> implements QueueInterface<T>{
     }
      
     public void clear(){
-
+        for(int i = 0; i < size; i++){
+            rev.pop();
+        }
+        size = 0;
     }
       
     public int size(){
