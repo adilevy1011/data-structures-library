@@ -29,7 +29,7 @@ public class LinkedStack<T> implements StackInterface<T> {
     @Override
     public T pop() {
         if (isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalStateException("Stack is empty");
         }
         T item = peek();
         top = top.next;
@@ -40,7 +40,7 @@ public class LinkedStack<T> implements StackInterface<T> {
     @Override
     public T peek() {
         if (isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalStateException("Stack is empty");
         }
         return top.data;
     }

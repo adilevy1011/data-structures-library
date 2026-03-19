@@ -13,7 +13,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
         queue = (T[]) new Object[capacity];
         front = 0;
         size = 0;
-        back = capacity;
+        back = capacity-1;
     }
     public ArrayQueue(){
         this(DEFAULT_CAPACITY);

@@ -30,7 +30,7 @@ public class ArrayStack<T> implements StackInterface<T> {
     @Override
     public T pop() {
         if (isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalStateException("Stack is empty");
         }
         return stack[topIndex--];
     }
@@ -38,7 +38,7 @@ public class ArrayStack<T> implements StackInterface<T> {
     @Override
     public T peek() {
         if (isEmpty()) {
-            throw new RuntimeException("Stack is empty");
+            throw new IllegalStateException("Stack is empty");
         }
         return stack[topIndex];
     }
